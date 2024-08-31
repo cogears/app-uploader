@@ -12,13 +12,19 @@ const storage = multer.diskStorage({
         cb(null, dir) // 确保这个文件夹已经存在
     },
     filename: function (req, file, cb) {
-        cb(null, uuidv4())
+        let name = uuidv4()
+        let ext = file.originalname.split('.').pop() || ''
+        if (ext) {
+            name = name + '.' + ext
+        }
+        cb(null, name)
     }
 })
 
 const upload = multer({ storage: storage });
 const app = express();
 app.use(cors())
+app.use('/uploads', express.static('uploads'))
 app.get('/', (req, res) => {
     res.send('ok')
 })
