@@ -35,7 +35,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
         return res.status(400).send('No file uploaded.');
     }
     console.info('upload', file.path)
-    res.send({ path: file.path })
+    res.send({ path: '/' + file.path })
 });
 
 const PORT = 3000;
