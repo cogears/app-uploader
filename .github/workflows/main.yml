@@ -25,4 +25,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: stone2grandia/app-uploader:1.0.1
+          tags: stone2grandia/app-uploader:1.0.2
