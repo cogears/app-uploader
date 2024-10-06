@@ -1,5 +1,9 @@
 #!/bin/bash
 
+docker stop uploader
+docker rm uploader
+docker rmi app-uploader
+
 docker pull stone2grandia/app-uploader
 docker tag stone2grandia/app-uploader app-uploader
 docker rmi stone2grandia/app-uploader
